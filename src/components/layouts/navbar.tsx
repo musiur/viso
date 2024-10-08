@@ -108,12 +108,12 @@ const Navbar = () => {
               <Menu />
             </DrawerTrigger>
             <DrawerContent>
-              <DrawerHeader>
+              <DrawerHeader className="shadow-lg">
                 <DrawerTitle>
                   <Logo />
                 </DrawerTitle>
               </DrawerHeader>
-              <div className="max-h-[60vh] overflow-y-auto">
+              <div className="max-h-[40vh] overflow-y-auto">
                 <div className="flex flex-col gap-4 p-4">
                   {NavLinks.map((link: Type___NavLink) => {
                     return (
