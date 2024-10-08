@@ -1,6 +1,5 @@
-const About = () => {
-  return <div>About</div>;
+const Page = () => {
+  return <div className="container py-10">On development</div>;
 };
 
-export default About;
-    
+export default Page;

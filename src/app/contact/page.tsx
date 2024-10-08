@@ -1,5 +1,5 @@
-const Contact = () => {
-  return <div>Contact</div>;
+const Page = () => {
+  return <div className="container py-10">On development</div>;
 };
 
-export default Contact;
+export default Page;

@@ -1,5 +1,5 @@
-const Home = () => {
-  return <div>Home Page</div>;
+const Page = () => {
+  return <div className="container py-10">On development</div>;
 };
 
-export default Home;
+export default Page;

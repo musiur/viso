@@ -1,5 +1,5 @@
 const Page = () => {
-  return <div>Page</div>;
+  return <div className="container py-10">On development</div>;
 };
 
 export default Page;
