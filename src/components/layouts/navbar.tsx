@@ -79,7 +79,7 @@ const Navbar = () => {
                         <NavigationMenuTrigger>
                           {link.title}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent>
+                        <NavigationMenuContent className="p-0">
                           <NavMenus link={link} />
                         </NavigationMenuContent>
                       </React.Fragment>
@@ -120,7 +120,7 @@ const Navbar = () => {
                         {link?.childrens?.length ? (
                           <NavMenus link={link} />
                         ) : (
-                          <Link href={link.href || "#"} legacyBehavior passHref>
+                          <Link href={link.href || "#"}>
                             {link.title}
                           </Link>
                         )}
@@ -129,9 +129,9 @@ const Navbar = () => {
                   })}
                 </div>
               </div>
-              <div className="w-[280px] sm:w-[400px] pl-4 grid grid-cols-1 gap-2 pb-10">
-                <Button>Book a Consultation</Button>
-                <DrawerFooter className="p-0">
+              <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
+                <Button className="w-full">Book a Consultation</Button>
+                <DrawerFooter className="p-0 w-full">
                   <DrawerClose>
                     <Button variant="outline" className="w-full">
                       Close
@@ -151,7 +151,7 @@ export default Navbar;
 
 const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
   return (
-    <ul className="grid grid-cols-1 gap-4 w-[280px] sm:w-[400px] p-0 sm:p-6">
+    <ul className="grid grid-cols-1 gap-4 p-0 sm:p-6 w-full min-[1024px]:w-[400px]">
       {link?.childrens?.map((parent: Type___NavLink) => {
         return (
           <li key={parent.id}>
@@ -176,8 +176,6 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
                 ) : (
                   <Link
                     href={child.href || "#"}
-                    legacyBehavior
-                    passHref
                     key={child.id}
                   >
                     <ChildLink child={child} />
@@ -196,7 +194,7 @@ const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
   return (
     <div
       className={
-        "flex items-start justify-start gap-4 py-2 px-3 rounded-xl transition duration-300 ease-linear hover:bg-gray-100"
+        "flex items-start justify-start gap-4 py-2 px-3 rounded-xl transition duration-300 ease-linear bg-gray-100"
       }
     >
       <div className="min-w-10 h-10 rounded-lg bg-white flex items-center justify-center mt-1 [&>svg]:w-8 [&>svg]:h-8 [&>svg]:stroke-primary shadow">
