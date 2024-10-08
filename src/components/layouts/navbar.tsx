@@ -27,6 +27,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import ICON___EU from "../icons/eu";
 import ICON___Kangaru from "../icons/kangaru";
 import ICON___LeafCanada from "../icons/leaf-canada";
+import clsx from "clsx";
 
 type Type___NavLink_GrandChild = {
   id: number;
@@ -120,9 +121,7 @@ const Navbar = () => {
                         {link?.childrens?.length ? (
                           <NavMenus link={link} />
                         ) : (
-                          <Link href={link.href || "#"}>
-                            {link.title}
-                          </Link>
+                          <Link href={link.href || "#"}>{link.title}</Link>
                         )}
                       </div>
                     );
@@ -174,10 +173,7 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
                 return child?.childrens?.length ? (
                   <ChildLink key={child.id} child={child} />
                 ) : (
-                  <Link
-                    href={child.href || "#"}
-                    key={child.id}
-                  >
+                  <Link href={child.href || "#"} key={child.id}>
                     <ChildLink child={child} />
                   </Link>
                 );
@@ -193,9 +189,13 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
 const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
   return (
     <div
-      className={
-        "flex items-start justify-start gap-4 py-2 px-3 rounded-xl transition duration-300 ease-linear bg-gray-100"
-      }
+      className={clsx(
+        "flex items-start justify-start gap-3 py-2 px-3 rounded-xl transition duration-300 ease-linear bg-gray-100",
+        {
+          "mb-8 pb-4": child?.childrens?.length,
+          "pb-2": !child?.childrens?.length,
+        }
+      )}
     >
       <div className="min-w-10 h-10 rounded-lg bg-white flex items-center justify-center mt-1 [&>svg]:w-8 [&>svg]:h-8 [&>svg]:stroke-primary shadow">
         {child.icon || <X />}
@@ -213,7 +213,9 @@ const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
             {child.title}
           </p>
         )}
-        <p className="text-sm text-muted-foreground">{child.desciption}</p>
+        {child?.desciption ? (
+          <p className="text-sm text-muted-foreground">{child.desciption}</p>
+        ) : null}
         {child?.childrens?.length ? (
           <ul className="flex flex-col gap-2 pt-2">
             {child?.childrens?.map((grandChild: Type___NavLink_GrandChild) => {
@@ -221,9 +223,9 @@ const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
                 <li key={grandChild.id}>
                   <Link
                     href={grandChild.href || "#"}
-                    className="flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+                    className="flex items-center gap-2 hover:text-primary transition duration-300 ease-linear text-sm"
                   >
-                    {grandChild.title}{" "}
+                    - {grandChild.title}{" "}
                     <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
                   </Link>
                 </li>
