@@ -67,9 +67,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-5 w-full z-50 px-4">
       <nav className="container mx-auto flex items-center justify-between border-b bg-white/70 backdrop-blur-md z-50 p-2 rounded-2xl border-white/80 shadow-lg">
-        <Link href="/">
-          <Logo />
-        </Link>
+        <Logo />
         <div className="hidden min-[1024px]:flex">
           <NavigationMenu>
             <NavigationMenuList>
@@ -122,14 +120,15 @@ const Navbar = () => {
                         {link?.childrens?.length ? (
                           <NavMenus link={link} />
                         ) : (
-                          <Link
-                            href={link?.href || ""}
-                            className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
-                          >
-                            {link.title}{" "}
-                            <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
-                          </Link>
-                          // <Link href={link.href || "#"}>{link.title}</Link>
+                          <DrawerClose asChild>
+                            <Link
+                              href={link?.href || ""}
+                              className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+                            >
+                              {link.title}{" "}
+                              <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                            </Link>
+                          </DrawerClose>
                         )}
                       </div>
                     );
@@ -140,10 +139,10 @@ const Navbar = () => {
                     Book a Consultation
                   </ShinyButton>
                   <DrawerFooter className="p-0 w-full">
-                    <DrawerClose>
-                      <Button variant="outline" className="w-full">
+                    <DrawerClose asChild>
+                      <div className="w-full h-9 flex items-center justify-center px-4 border rounded-lg sm:cursor-pointer">
                         Close
-                      </Button>
+                      </div>
                     </DrawerClose>
                   </DrawerFooter>
                 </div>
@@ -165,13 +164,15 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
         return (
           <li key={parent.id}>
             {!parent?.childrens?.length ? (
-              <Link
-                href={parent?.href || ""}
-                className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
-              >
-                {parent.title}{" "}
-                <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
-              </Link>
+              <DrawerClose asChild>
+                <Link
+                  href={parent?.href || ""}
+                  className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+                >
+                  {parent.title}{" "}
+                  <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                </Link>
+              </DrawerClose>
             ) : (
               <p className="text-sm font-medium flex items-center gap-2">
                 {parent.title}
@@ -183,9 +184,11 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
                 return child?.childrens?.length ? (
                   <ChildLink key={child.id} child={child} />
                 ) : (
-                  <Link href={child.href || "#"} key={child.id}>
-                    <ChildLink child={child} />
-                  </Link>
+                  <DrawerClose key={child.id} asChild>
+                    <Link href={child.href || "#"}>
+                      <ChildLink child={child} />
+                    </Link>
+                  </DrawerClose>
                 );
               })}
             </div>
@@ -212,12 +215,14 @@ const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
       </div>
       <div className="flex flex-col items-start justify-start">
         {!child?.childrens?.length ? (
-          <Link
-            href={child?.href || ""}
-            className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
-          >
-            {child.title} <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
-          </Link>
+          <DrawerClose asChild>
+            <Link
+              href={child?.href || ""}
+              className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+            >
+              {child.title} <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+            </Link>
+          </DrawerClose>
         ) : (
           <p className="text-sm font-medium flex items-center gap-2">
             {child.title}
