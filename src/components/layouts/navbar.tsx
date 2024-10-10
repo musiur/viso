@@ -118,7 +118,7 @@ const Navbar = () => {
                     return (
                       <div key={link.id}>
                         {link?.childrens?.length ? (
-                          <NavMenus link={link} />
+                          <NavMenus link={link} scope={true} />
                         ) : (
                           <DrawerClose asChild>
                             <Link
@@ -198,13 +198,13 @@ const NavMenus = ({
             <div className="flex flex-col gap-2 pt-2">
               {parent?.childrens?.map((child: Type___NavLink) => {
                 return child?.childrens?.length ? (
-                  <ChildLink key={child.id} child={child} />
+                  <ChildLink key={child.id} child={child} scope={scope}/>
                 ) : scope ? (
                   <DrawerClose key={child.id} asChild>
-                    <ChildLink child={child} />
+                      <ChildLink child={child} scope={scope} />
                   </DrawerClose>
                 ) : (
-                  <ChildLink key={child.id} child={child} />
+                  <ChildLink key={child.id} child={child} scope={scope}/>
                 );
               })}
             </div>
