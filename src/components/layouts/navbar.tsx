@@ -65,7 +65,7 @@ type Type___NavLink = {
 
 const Navbar = () => {
   return (
-    <header className="fixed top-5 w-full z-50">
+    <header className="fixed top-5 w-full z-50 px-4">
       <nav className="container mx-auto flex items-center justify-between border-b bg-white/70 backdrop-blur-md z-50 p-2 rounded-2xl border-white/80 shadow-lg">
         <Link href="/">
           <Logo />

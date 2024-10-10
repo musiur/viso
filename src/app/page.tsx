@@ -11,14 +11,14 @@ const Page = () => {
           <p className="text-primary text-center text-sm">
             ACHEIVE YOUR DESTINY
           </p>
-          <HeadingOne>Empowering Your </HeadingOne>
+          <HeadingOne>Empowering </HeadingOne>
           <HeadingOne
             className="text-primary"
             delay={0.75}
             shine={true}
             color="hsl(var(--primary))"
           >
-            Global Career
+            Your Global Career
           </HeadingOne>
           <HeadingOne delay={1}>from Doha</HeadingOne>
         </div>
