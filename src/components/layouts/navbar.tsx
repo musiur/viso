@@ -28,6 +28,7 @@ import ICON___EU from "../icons/eu";
 import ICON___Kangaru from "../icons/kangaru";
 import ICON___LeafCanada from "../icons/leaf-canada";
 import clsx from "clsx";
+import { ShinyButton } from "../ui/shiny-button";
 
 type Type___NavLink_GrandChild = {
   id: number;
@@ -64,8 +65,8 @@ type Type___NavLink = {
 
 const Navbar = () => {
   return (
-    <header className="border-b bg-white/50 backdrop-blur-md z-50 sticky top-0 py-2">
-      <nav className="container mx-auto flex items-center justify-between">
+    <header className="fixed top-5 w-full z-50">
+      <nav className="container mx-auto flex items-center justify-between border-b bg-white/70 backdrop-blur-md z-50 p-2 rounded-2xl border-white/80 shadow-lg">
         <Link href="/">
           <Logo />
         </Link>
@@ -99,9 +100,9 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <Button className="hidden min-[1024px]:flex">
+        <ShinyButton className="hidden min-[1024px]:flex">
           Book a Consultation
-        </Button>
+        </ShinyButton>
         <div className="flex items-center gap-4 min-[1024px]:hidden">
           <Drawer>
             <DrawerTrigger>
@@ -129,7 +130,9 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
-                <Button className="w-full">Book a Consultation</Button>
+                <ShinyButton className="w-full">
+                  Book a Consultation
+                </ShinyButton>
                 <DrawerFooter className="p-0 w-full">
                   <DrawerClose>
                     <Button variant="outline" className="w-full">

@@ -16,19 +16,20 @@ body {
 
 @layer base {
   :root {
+    --white: 0 0% 100%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 39 100% 42%; // Goldenrod (hsl value)
+    --primary: 39 61% 42%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
+    --secondary: 51 88% 68%;
     --secondary-foreground: 0 0% 9%;
-    --muted: 39 100% 90%; // Wheat (hsl value for muted)
+    --muted: 44 71% 96%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
+    --accent: 51 88% 68%;
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -89,3 +90,35 @@ body {
 .container {
   @apply max-w-[1120px] mx-auto px-4;
 }
+
+.hero-section {
+  @apply pb-16 pt-32;
+}
+
+.paragraph {
+  @apply text-[16px] leading-relaxed;
+}
+
+.heading-one {
+  @apply text-4xl sm:text-6xl font-bold max-w-lg;
+}
+
+
+@keyframes shine {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+// .shine-effect {
+//   background: linear-gradient(90deg, transparent, #ffffff, transparent);
+//   background-size: 200% 100%;
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   color: transparent;
+//   animation: shine 2s infinite;
+//   animation-delay: 2s;
+// }

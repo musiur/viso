@@ -1,15 +1,15 @@
+"use client";
 import { cn } from "@/lib/utils";
+import SvgWrapper from "../layouts/svg-wrapper";
 
 const Logo = ({ className = "w-12 h-12" }: { className?: string }) => {
   return (
     <div className="flex items-center justify-start gap-2">
-      <svg
-        // width="600"
-        // height="600"
+      <SvgWrapper
         viewBox="0 0 600 600"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={className}
+        className={cn(className, "")}
       >
         <circle cx="300" cy="300" r="300" fill="white" />
         <circle
@@ -42,12 +42,12 @@ const Logo = ({ className = "w-12 h-12" }: { className?: string }) => {
             y2="333.431"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#AC7F2A" />
-            <stop offset="0.185" stopColor="#AA7D2A" />
+            <stop stopColor="#ab7e2a" />
+            <stop offset="0.185" stopColor="#ab7e2a" />
             <stop offset="0.335" stopColor="#FFE170" />
             <stop offset="0.49" stopColor="#D3AE3B" />
             <stop offset="0.665" stopColor="#F0D667" />
-            <stop offset="1" stopColor="#A5762A" />
+            <stop offset="1" stopColor="#ab7e2a" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_3_10"
@@ -61,8 +61,8 @@ const Logo = ({ className = "w-12 h-12" }: { className?: string }) => {
             <stop offset="0.2" stopColor="#EFD365" />
             <stop offset="0.4" stopColor="#D5B23E" />
             <stop offset="0.6" stopColor="#FADA69" />
-            <stop offset="0.8" stopColor="#AA8139" />
-            <stop offset="1" stopColor="#AA8139" />
+            <stop offset="0.8" stopColor="#ab7e2a" />
+            <stop offset="1" stopColor="#ab7e2a" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_3_10"
@@ -80,7 +80,7 @@ const Logo = ({ className = "w-12 h-12" }: { className?: string }) => {
             <stop offset="1" stopColor="#AA8139" />
           </linearGradient>
         </defs>
-      </svg>
+      </SvgWrapper>
 
       <div className="flex flex-col items-start justify-start leading-none [&>*]:text-[20px] [&>*]:font-semibold">
         <p className="text-primary">Viso Way</p>
