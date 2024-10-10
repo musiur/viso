@@ -114,32 +114,39 @@ const Navbar = () => {
                   <Logo />
                 </DrawerTitle>
               </DrawerHeader>
-              <div className="max-h-[40vh] overflow-y-auto">
-                <div className="flex flex-col gap-4 p-4">
+              <div className="h-[60vh] overflow-y-auto">
+                <div className="flex flex-col gap-4 p-4 pt-8">
                   {NavLinks.map((link: Type___NavLink) => {
                     return (
                       <div key={link.id}>
                         {link?.childrens?.length ? (
                           <NavMenus link={link} />
                         ) : (
-                          <Link href={link.href || "#"}>{link.title}</Link>
+                          <Link
+                            href={link?.href || ""}
+                            className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+                          >
+                            {link.title}{" "}
+                            <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                          </Link>
+                          // <Link href={link.href || "#"}>{link.title}</Link>
                         )}
                       </div>
                     );
                   })}
                 </div>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
-                <ShinyButton className="w-full">
-                  Book a Consultation
-                </ShinyButton>
-                <DrawerFooter className="p-0 w-full">
-                  <DrawerClose>
-                    <Button variant="outline" className="w-full">
-                      Close
-                    </Button>
-                  </DrawerClose>
-                </DrawerFooter>
+                <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
+                  <ShinyButton className="w-full">
+                    Book a Consultation
+                  </ShinyButton>
+                  <DrawerFooter className="p-0 w-full">
+                    <DrawerClose>
+                      <Button variant="outline" className="w-full">
+                        Close
+                      </Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </div>
               </div>
             </DrawerContent>
           </Drawer>
