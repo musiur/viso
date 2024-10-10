@@ -21,7 +21,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-import { Button } from "../ui/button";
+
 import Logo from "../brands/logo";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import ICON___EU from "../icons/eu";
@@ -157,14 +157,30 @@ const Navbar = () => {
 
 export default Navbar;
 
-const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
+const NavMenus = ({
+  link,
+  scope = false,
+}: {
+  link: Type___NavLink_Child;
+  scope?: boolean;
+}) => {
   return (
     <ul className="grid grid-cols-1 gap-4 p-0 sm:p-6 w-full min-[1024px]:w-[400px]">
       {link?.childrens?.map((parent: Type___NavLink) => {
         return (
           <li key={parent.id}>
             {!parent?.childrens?.length ? (
-              <DrawerClose asChild>
+              scope ? (
+                <DrawerClose asChild>
+                  <Link
+                    href={parent?.href || ""}
+                    className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+                  >
+                    {parent.title}{" "}
+                    <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                  </Link>
+                </DrawerClose>
+              ) : (
                 <Link
                   href={parent?.href || ""}
                   className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
@@ -172,7 +188,7 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
                   {parent.title}{" "}
                   <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
                 </Link>
-              </DrawerClose>
+              )
             ) : (
               <p className="text-sm font-medium flex items-center gap-2">
                 {parent.title}
@@ -183,12 +199,12 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
               {parent?.childrens?.map((child: Type___NavLink) => {
                 return child?.childrens?.length ? (
                   <ChildLink key={child.id} child={child} />
-                ) : (
+                ) : scope ? (
                   <DrawerClose key={child.id} asChild>
-                    <Link href={child.href || "#"}>
-                      <ChildLink child={child} />
-                    </Link>
+                    <ChildLink child={child} />
                   </DrawerClose>
+                ) : (
+                  <ChildLink key={child.id} child={child} />
                 );
               })}
             </div>
@@ -199,7 +215,13 @@ const NavMenus = ({ link }: { link: Type___NavLink_Child }) => {
   );
 };
 
-const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
+const ChildLink = ({
+  child,
+  scope = false,
+}: {
+  child: Type___NavLink_Child;
+  scope?: boolean;
+}) => {
   return (
     <div
       className={clsx(
@@ -215,14 +237,24 @@ const ChildLink = ({ child }: { child: Type___NavLink_Child }) => {
       </div>
       <div className="flex flex-col items-start justify-start">
         {!child?.childrens?.length ? (
-          <DrawerClose asChild>
+          scope ? (
+            <DrawerClose asChild>
+              <Link
+                href={child?.href || ""}
+                className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
+              >
+                {child.title}{" "}
+                <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+              </Link>
+            </DrawerClose>
+          ) : (
             <Link
               href={child?.href || ""}
               className="text-sm font-medium flex items-center gap-2 hover:text-primary transition duration-300 ease-linear"
             >
               {child.title} <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
             </Link>
-          </DrawerClose>
+          )
         ) : (
           <p className="text-sm font-medium flex items-center gap-2">
             {child.title}

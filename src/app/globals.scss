@@ -94,7 +94,9 @@ body {
 .hero-section {
   @apply pb-16 pt-24 sm:pt-32;
 }
-
+.section {
+  @apply py-16;
+}
 .paragraph {
   @apply text-[16px] leading-relaxed;
 }

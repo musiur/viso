@@ -3,6 +3,7 @@
 
 import createGlobe, { COBEOptions } from "cobe";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useSpring } from '@react-spring/web';
 
 import { cn } from "@/lib/utils";
 
@@ -10,7 +11,7 @@ const GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
   onRender: () => {},
-  devicePixelRatio: 2,
+  devicePixelRatio: 0,
   phi: 0,
   theta: 0.3,
   dark: 0,
@@ -18,7 +19,7 @@ const GLOBE_CONFIG: COBEOptions = {
   mapSamples: 16000,
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
-  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  markerColor: [218 / 255, 165 / 255, 32 / 255], //218 165% 32% - golden color
   glowColor: [1, 1, 1],
   markers: [
     { location: [14.5995, 120.9842], size: 0.03 },
@@ -41,84 +42,99 @@ export default function Globe({
   className?: string;
   config?: COBEOptions;
 }) {
-  let phi = 0;
-  let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerInteracting = useRef(null);
+  const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
-  const [r, setR] = useState(0);
+  const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
   
-  const updatePointerInteraction = (value: any) => {
-    pointerInteracting.current = value;
-    if (canvasRef.current) {
-      canvasRef.current.style.cursor = value ? "grabbing" : "grab";
-    }
-  };
+  const [{ phi }, api] = useSpring(() => ({ phi: 0 }));
+  const autoRotationRef = useRef(0);
 
-  // eslint-disable-next-line
-  const updateMovement = (clientX: any) => {
+  const updatePointerInteraction = useCallback((clientX: number | null) => {
+    pointerInteracting.current = clientX;
+    if (canvasRef.current) {
+      canvasRef.current.style.cursor = clientX !== null ? "grabbing" : "grab";
+    }
+  }, []);
+
+  const updateMovement = useCallback((clientX: number) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
-      setR(delta / 200);
+      api.start({ phi: phi.get() + delta * 0.01 });
     }
-  };
+  }, [api, phi]);
 
-  const onRender = useCallback(
-    // eslint-disable-next-line
-    (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005;
-      state.phi = phi + r;
-      state.width = width * 2;
-      state.height = width * 2;
-    },
-    [r]
-  );
+  const onRender = useCallback((state: Record<string, any>) => {
+    if (pointerInteracting.current === null) {
+      autoRotationRef.current += 0.005;
+    }
+    state.phi = phi.get() + autoRotationRef.current;
+    state.width = size.width;
+    state.height = size.height;
+  }, [phi, size]);
 
-  const onResize = () => {
+  const handleResize = useCallback(() => {
     if (canvasRef.current) {
-      width = canvasRef.current.offsetWidth;
+      const containerWidth = canvasRef.current.parentElement?.clientWidth || 0;
+      // const globeSize = containerWidth // Math.min(containerWidth, 900); // Max 600px, but can be smaller based on container
+      setSize({ width: containerWidth, height: containerWidth });
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", onResize);
-    onResize();
-
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender,
-    });
-
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"));
-    return () => globe.destroy();
   }, []);
 
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+
+  useEffect(() => {
+    if (!canvasRef.current || size.width === 0 || size.height === 0) return;
+
+    if (globeRef.current) {
+      globeRef.current.destroy();
+    }
+
+    globeRef.current = createGlobe(canvasRef.current, {
+      ...config,
+      width: size.width,
+      height: size.height,
+      onRender: (state) => {
+        state.width = size.width;
+        state.height = size.height;
+        onRender(state);
+      },
+    });
+
+    canvasRef.current.style.opacity = "1";
+
+    return () => {
+      if (globeRef.current) {
+        globeRef.current.destroy();
+      }
+    };
+  }, [config, onRender, size]);
+
   return (
-    <div
-      className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
-        className
-      )}
-    >
+    <div className={cn("flex justify-center items-center", className)}>
       <canvas
-        className={cn(
-          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
-        )}
+        className="opacity-0 transition-opacity duration-500"
         ref={canvasRef}
-        onPointerDown={(e) =>
-          updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current
-          )
-        }
+        width={size.width}
+        height={size.height}
+        style={{
+          width: `${size.width}px`,
+          height: `${size.height}px`,
+        }}
+        onPointerDown={(e) => updatePointerInteraction(e.clientX)}
         onPointerUp={() => updatePointerInteraction(null)}
         onPointerOut={() => updatePointerInteraction(null)}
         onMouseMove={(e) => updateMovement(e.clientX)}
-        onTouchMove={(e) =>
-          e.touches[0] && updateMovement(e.touches[0].clientX)
-        }
+        onTouchMove={(e) => e.touches[0] && updateMovement(e.touches[0].clientX)}
       />
     </div>
   );
