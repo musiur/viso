@@ -80,7 +80,7 @@ const features = [
     Icon: BellIcon,
     name: "Wherever You Want to Land",
     description:
-      "Our clients success stories reflect our commitment to excellence. From securing positions in bustling European cities to starting new careers in the picturesque landscapes of Australia and Canada",
+      "Our clients success stories reflect our commitment to excellence. Securing positions in bustling European cities to starting new careers",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -92,7 +92,7 @@ const features = [
     Icon: File,
     name: "Seamless Work Permit Solutions (Only Europe)",
     description:
-      "Work Permit and Visa Assistance: Expert support for visa applications, renewals, and compliance. Navigating the complexities of international work permits can be challenging.",
+      "Navigating the complexities of international work permits can be challenging.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
