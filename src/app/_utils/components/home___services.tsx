@@ -7,7 +7,7 @@ const Home___Services = () => {
     <div className="container section mx-auto overflow-hidden space-y-8">
       <div className="relative">
         <VelocityScroll
-          text="Australia USA UK Canada EUROPE"
+          text="Australia Canada EUROPE"
           default_velocity={4}
           className="font-display text-center text-5xl font-bold tracking-[-0.02em] text-primary/20 rop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
         />
