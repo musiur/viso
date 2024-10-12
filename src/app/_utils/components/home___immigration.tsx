@@ -1,7 +1,13 @@
 /* eslint-disable */
 
 import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon } from "lucide-react";
+import {
+  BaggageClaim,
+  BellIcon,
+  File,
+  PlaneTakeoff,
+  Share2Icon,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
@@ -13,31 +19,31 @@ import { Cards___AnimatedList } from "./animated___list";
 
 const files = [
   {
-    name: "bitcoin.pdf",
+    name: "Australia",
     body: "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.",
   },
   {
-    name: "finances.xlsx",
+    name: "Canada",
     body: "A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.",
   },
   {
-    name: "logo.svg",
+    name: "United Kingdom",
     body: "Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.",
   },
   {
-    name: "keys.gpg",
+    name: "United States",
     body: "GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.",
   },
   {
-    name: "seed.txt",
+    name: "Europe",
     body: "A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.",
   },
 ];
 
 const features = [
   {
-    Icon: FileTextIcon,
-    name: "Save your files",
+    Icon: PlaneTakeoff,
+    name: "Tourist VISA (All Countries)",
     description: "We automatically save your files as you type.",
     href: "#",
     cta: "Learn more",
@@ -72,8 +78,9 @@ const features = [
   },
   {
     Icon: BellIcon,
-    name: "Notifications",
-    description: "Get notified when something happens.",
+    name: "Wherever You Want to Land",
+    description:
+      "Our clients success stories reflect our commitment to excellence. From securing positions in bustling European cities to starting new careers in the picturesque landscapes of Australia and Canada",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -82,20 +89,22 @@ const features = [
     ),
   },
   {
-    Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    Icon: File,
+    name: "Seamless Work Permit Solutions (Only Europe)",
+    description:
+      "Work Permit and Visa Assistance: Expert support for visa applications, renewals, and compliance. Navigating the complexities of international work permits can be challenging.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <Beam___MultipleOutput className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <Beam___MultipleOutput className="absolute right-2 -top-16 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
   },
   {
     Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    name: "Book Your Appointment",
+    description:
+      "At Viso Way Consultancy, we provide expert assistance in securing the appropriate visas for your desired destination.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
@@ -113,10 +122,10 @@ export default function Home___Immigration() {
   return (
     <div className="container section">
       <BentoGrid>
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
-      ))}
-    </BentoGrid>
+        {features.map((feature, idx) => (
+          <BentoCard key={idx} {...feature} />
+        ))}
+      </BentoGrid>
     </div>
   );
 }

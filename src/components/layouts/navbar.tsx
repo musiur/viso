@@ -24,11 +24,11 @@ import {
 
 import Logo from "../brands/logo";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import ICON___EU from "../icons/eu";
-import ICON___Kangaru from "../icons/kangaru";
-import ICON___LeafCanada from "../icons/leaf-canada";
 import clsx from "clsx";
 import { ShinyButton } from "../ui/shiny-button";
+import ICON___FlagEU from "../icons/flag__eu";
+import ICON___FlagAustralia from "../icons/flag__australia";
+import ICON___FlagCanada from "../icons/flag__canada";
 
 type Type___NavLink_GrandChild = {
   id: number;
@@ -232,7 +232,7 @@ const ChildLink = ({
         }
       )}
     >
-      <div className="min-w-10 h-10 rounded-lg bg-white flex items-center justify-center mt-1 [&>svg]:w-8 [&>svg]:h-8 [&>svg]:stroke-primary shadow">
+      <div className="min-w-10 h-auto rounded-lg bg-white flex items-center justify-center mt-1 [&>svg]:w-8 [&>svg]:h-8 [&>svg]:stroke-primary shadow">
         {child.icon || <X />}
       </div>
       <div className="flex flex-col items-start justify-start">
@@ -307,7 +307,7 @@ const NavLinks: Type___NavLink[] = [
             desciption:
               "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
             href: "/immigration/europe",
-            icon: <ICON___EU />,
+            icon: <ICON___FlagEU className="w-8 h-8" />,
           },
           {
             id: 2,
@@ -315,14 +315,14 @@ const NavLinks: Type___NavLink[] = [
             desciption:
               "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
             href: "/immigration/australia",
-            icon: <ICON___Kangaru />,
+            icon: <ICON___FlagAustralia className="w-8 h-8" />,
           },
           {
             id: 3,
             title: "Canada",
             desciption:
               "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
-            icon: <ICON___LeafCanada />,
+            icon: <ICON___FlagCanada className="w-8 h-8" />,
             childrens: [
               {
                 id: 1,

@@ -4,6 +4,8 @@ import React, { forwardRef, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
+import LogoWithoutText from "@/components/brands/logo__without_text";
+import ICON___FlagEuRounded from "@/components/icons/eu__rounded";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -14,7 +16,7 @@ const Circle = forwardRef<
       ref={ref}
       className={cn(
         "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
-        className,
+        className
       )}
     >
       {children}
@@ -24,17 +26,13 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export function Beam___MultipleOutput({
-  className,
-}: {
-  className?: string;
-}) {
+export function Beam___MultipleOutput({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
+  // const div2Ref = useRef<HTMLDivElement>(null);
+  // const div3Ref = useRef<HTMLDivElement>(null);
+  // const div4Ref = useRef<HTMLDivElement>(null);
+  // const div5Ref = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
 
@@ -42,7 +40,7 @@ export function Beam___MultipleOutput({
     <div
       className={cn(
         "relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-10 md:shadow-xl",
-        className,
+        className
       )}
       ref={containerRef}
     >
@@ -54,25 +52,25 @@ export function Beam___MultipleOutput({
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className="size-16">
-            <Icons.openai />
+            <LogoWithoutText className="w-full h-full" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-2">
           <Circle ref={div1Ref}>
-            <Icons.googleDrive />
+            <ICON___FlagEuRounded className="min-w-10 min-h-10 stroke-primary"/>
           </Circle>
-          <Circle ref={div2Ref}>
-            <Icons.googleDocs />
+          {/* <Circle ref={div2Ref}>
+            <ICON___Kangaru className="w-6 h-6 stroke-primary"/>
           </Circle>
           <Circle ref={div3Ref}>
-            <Icons.whatsapp />
-          </Circle>
-          <Circle ref={div4Ref}>
+            <ICON___LeafCanada className="w-6 h-6 stroke-primary"/>
+          </Circle> */}
+          {/* <Circle ref={div4Ref}>
             <Icons.messenger />
           </Circle>
           <Circle ref={div5Ref}>
             <Icons.notion />
-          </Circle>
+          </Circle> */}
         </div>
       </div>
 
@@ -83,7 +81,7 @@ export function Beam___MultipleOutput({
         toRef={div6Ref}
         duration={3}
       />
-      <AnimatedBeam
+      {/* <AnimatedBeam
         containerRef={containerRef}
         fromRef={div2Ref}
         toRef={div6Ref}
@@ -94,8 +92,8 @@ export function Beam___MultipleOutput({
         fromRef={div3Ref}
         toRef={div6Ref}
         duration={3}
-      />
-      <AnimatedBeam
+      /> */}
+      {/* <AnimatedBeam
         containerRef={containerRef}
         fromRef={div4Ref}
         toRef={div6Ref}
@@ -106,7 +104,7 @@ export function Beam___MultipleOutput({
         fromRef={div5Ref}
         toRef={div6Ref}
         duration={3}
-      />
+      /> */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div6Ref}
