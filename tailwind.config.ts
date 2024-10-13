@@ -83,10 +83,17 @@ const config: Config = {
     			},
     			shine: {
     				'0%': {
-    					backgroundPosition: '-100%'
+    					backgroundPosition: '-100%',
+    					'background-position': '0% 0%'
     				},
     				'100%': {
     					backgroundPosition: '100%'
+    				},
+    				'50%': {
+    					'background-position': '100% 100%'
+    				},
+    				to: {
+    					'background-position': '0% 0%'
     				}
     			},
     			marquee: {
@@ -104,15 +111,24 @@ const config: Config = {
     				to: {
     					transform: 'translateY(calc(-100% - var(--gap)))'
     				}
+    			},
+    			ripple: {
+    				'0%, 100%': {
+    					transform: 'translate(-50%, -50%) scale(1)'
+    				},
+    				'50%': {
+    					transform: 'translate(-50%, -50%) scale(0.9)'
+    				}
     			}
     		},
     		animation: {
     			'accordion-down': 'accordion-down 0.2s ease-out',
     			'accordion-up': 'accordion-up 0.2s ease-out',
     			grid: 'grid 15s linear infinite',
-    			shine: 'shine 2s infinite',
+    			shine: 'shine var(--duration) infinite linear',
     			marquee: 'marquee var(--duration) infinite linear',
-    			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+    			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+    			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite'
     		}
     	}
     },
