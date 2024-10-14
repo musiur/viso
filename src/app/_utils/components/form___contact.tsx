@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -26,6 +26,7 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import ReactSelect from "react-select";
 import countryList from "react-select-country-list";
+import Image from "next/image";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -87,16 +88,16 @@ export default function ContactForm() {
     "Master's Degree",
     "Doctorate",
     "Other",
-    ];
-    
-    console.log(form.formState.errors)
+  ];
+
+  console.log(form.formState.errors);
 
   return (
-    <div className="w-[600px] mx-auto bg-white grid">
+    <div className="w-full bg-white grid">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="p-6 w-full grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="w-full flex flex-col md:grid grid-cols-2 gap-4"
         >
           <FormField
             control={form.control}
@@ -146,11 +147,12 @@ export default function ContactForm() {
                       label: string;
                     }) => (
                       <div className="flex items-center">
-                        <img
+                        <Image
                           loading="lazy"
-                          width="20"
+                          width={20}
+                          height={20}
                           src={`https://flagcdn.com/w20/${option.value.toLowerCase()}.png`}
-                          srcSet={`https://flagcdn.com/w40/${option.value.toLowerCase()}.png 2x`}
+                          // srcSet={`https://flagcdn.com/w40/${option.value.toLowerCase()}.png 2x`}
                           alt=""
                           className="mr-2"
                         />
@@ -249,23 +251,25 @@ export default function ContactForm() {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Your message here..."
-                    className="min-h-[100px]"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="col-span-2">
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Your message here..."
+                      className="min-h-[100px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
           <Button type="submit" className="w-full">
             Send Message
