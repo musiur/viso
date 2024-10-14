@@ -9,7 +9,7 @@ const Home___Contact = () => {
       <section className="container section grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="space-y-12">
           <div>
-          <p>Why choose us?</p>
+          <p className="text-primary font-semibold">Why choose us?</p>
           <h2 className="text-3xl md:text-4xl font-bold">
             Immigration Services From Expert Agents
           </h2>

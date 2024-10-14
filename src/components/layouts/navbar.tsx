@@ -21,7 +21,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-
 import Logo from "../brands/logo";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import clsx from "clsx";
@@ -98,9 +97,11 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <ShinyButton className="hidden min-[1024px]:flex">
-          Book a Consultation
-        </ShinyButton>
+        <Link href="/contact">
+          <ShinyButton className="hidden min-[1024px]:flex">
+            Book a Consultation
+          </ShinyButton>
+        </Link>
         <div className="flex items-center gap-4 min-[1024px]:hidden">
           <Drawer>
             <DrawerTrigger>
@@ -135,9 +136,11 @@ const Navbar = () => {
                   })}
                 </div>
                 <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
-                  <ShinyButton className="w-full">
-                    Book a Consultation
-                  </ShinyButton>
+                  <Link href="/contact">
+                    <ShinyButton className="w-full">
+                      Book a Consultation
+                    </ShinyButton>
+                  </Link>
                   <DrawerFooter className="p-0 w-full">
                     <DrawerClose asChild>
                       <div className="w-full h-9 flex items-center justify-center px-4 border rounded-lg sm:cursor-pointer">
@@ -198,13 +201,13 @@ const NavMenus = ({
             <div className="flex flex-col gap-2 pt-2">
               {parent?.childrens?.map((child: Type___NavLink) => {
                 return child?.childrens?.length ? (
-                  <ChildLink key={child.id} child={child} scope={scope}/>
+                  <ChildLink key={child.id} child={child} scope={scope} />
                 ) : scope ? (
                   <DrawerClose key={child.id} asChild>
-                      <ChildLink child={child} scope={scope} />
+                    <ChildLink child={child} scope={scope} />
                   </DrawerClose>
                 ) : (
-                  <ChildLink key={child.id} child={child} scope={scope}/>
+                  <ChildLink key={child.id} child={child} scope={scope} />
                 );
               })}
             </div>
