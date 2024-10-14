@@ -1,43 +1,86 @@
 import { Fragment } from "react";
-import ContactForm from "../_utils/components/form___contact";
 import Ripple from "@/components/ui/ripple";
-
-type Type___ContactInformation = {
-  id: number;
-  title: string;
-  paragraph: string;
-}
+import {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Phone,
+  Twitter,
+} from "lucide-react";
+import { Mail } from "lucide-react";
+import { MapPin } from "lucide-react";
+import Form___Contact from "../_utils/components/form___contact";
+import Link from "next/link";
 
 const Page = () => {
   return (
     <Fragment>
-      <section className="container py-40  grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="space-y-12">
-          <div>
-            <p className="text-primary font-semibold">Contact us?</p>
-            <h2 className="text-3xl md:text-4xl font-bold">
-            Feel free to contact with us any time
-            </h2>
-          </div>
-          <ul className="grid grid-cols-1 gap-8">
-            {ContactInformations.map((item: Type___ContactInformation) => {
-              return (
-                <li key={item.id} className="flex gap-4">
-                  <p className="text-6xl font-bold bg-primary/10 min-w-[60px] h-auto rounded-md flex items-center justify-center text-primary">
-                    {item.id}
-                  </p>
-                  <div>
-                    <p className="font-semibold">{item.title}</p>
-                    <p>{item.paragraph}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+      <section className="container py-40">
+        <div className="max-w-xl mx-auto py-10 flex flex-col justify-center items-center gap-4 [&>*]:text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">Contact us</h2>
+          <p>
+            We are here to help you with your immigration needs. We are a team
+            of experienced immigration consultants who are dedicated to helping
+            you with your immigration needs.
+          </p>
         </div>
-        <ContactForm />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <Form___Contact />
+          <div className="space-y-12">
+            <div className="grid grid-cols-1 gap-2">
+              <h4 className="text-primary font-semibold">Call us now</h4>
+              <p>Call our team any time, we are available 24/7 </p>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4" /> +1 (234) 567-8900
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-2">
+              <h4 className="text-primary font-semibold">Chat with us</h4>
+              <div className="grid grid-cols-1 gap-2">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> info@example.com
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4" /> +1 (234) 567-8900
+                  (WhatsApp)
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-2">
+              <h4 className="text-primary font-semibold">Social Media</h4>
+              <p>Reach out to us on our social media platforms</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href="#"
+                  className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
+                >
+                  <Facebook className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="#"
+                  className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
+                >
+                  <Instagram className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="#"
+                  className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
+                >
+                  <Twitter className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-2">
+              <h4 className="text-primary font-semibold">Visit us</h4>
+              <p>Chat to use in person</p>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" /> Duha, Qatar
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="contact" className="container section relative">
+      <section className="container section relative">
         <Ripple />
       </section>
     </Fragment>
@@ -45,18 +88,3 @@ const Page = () => {
 };
 
 export default Page;
-
-const ContactInformations: Type___ContactInformation[] = [
-  {
-    id: 1,
-    title: "Legal Immigration Processing",
-    paragraph:
-      "We have processing all legal immigrationo process and documnet require.",
-  },
-  {
-    id: 2,
-    title: "Required Documents Support",
-    paragraph:
-      "Required Documents Support A registered immigration consultant will provide you with all the resources and let you have all the information promptly and efficiently.",
-  },
-]

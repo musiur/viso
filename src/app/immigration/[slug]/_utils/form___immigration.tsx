@@ -1,4 +1,3 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -53,7 +52,7 @@ const formSchema = z.object({
   }),
 });
 
-export default function Form___Contact() {
+export default function Form___Immigration() {
   const countryOptions = countryList().getData();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -97,8 +96,9 @@ export default function Form___Contact() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full flex flex-col md:grid grid-cols-2 gap-4"
+          className="w-full space-y-4 shadow-md p-4 rounded-lg border"
         >
+          <h4 className="text-xl font-semibold">Quick contact</h4>
           <FormField
             control={form.control}
             name="name"

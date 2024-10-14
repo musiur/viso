@@ -91,9 +91,15 @@ const Testimonials = () => {
   return (
     <Fragment>
       <section className="container hero-section">
-        <h2 className="text-3xl md:text-4xl font-bold text-center">
-          Our wall of love
-        </h2>
+        <div className="py-10 flex items-center justify-center flex-col gap-4">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Our wall of <span className="text-primary">love</span>
+          </h2>
+          <p>
+            Our clients are our priority, and we are committed to providing them
+            with the best immigration services.
+          </p>
+        </div>
         <div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden pt-4">
           <Marquee pauseOnHover className="[--duration:20s]">
             {firstRow.map((review) => (

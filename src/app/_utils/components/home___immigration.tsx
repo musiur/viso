@@ -43,8 +43,9 @@ const files = [
 const features = [
   {
     Icon: PlaneTakeoff,
-    name: "Tourist VISA (All Countries)",
-    description: "We automatically save your files as you type.",
+    name: "Deep Industry Knowledge",
+    description:
+      "Expertise in navigating complex immigration laws and understanding the job market trends in your desired destination.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -78,9 +79,9 @@ const features = [
   },
   {
     Icon: BellIcon,
-    name: "Wherever You Want to Land",
+    name: "Proven Track Record",
     description:
-      "Our clients success stories reflect our commitment to excellence. Securing positions in bustling European cities to starting new careers",
+      "A decade of successful visa applications and job placements for clients across Europe, Canada, and Australia.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -92,7 +93,7 @@ const features = [
     Icon: File,
     name: "Seamless Work Permit Solutions (Only Europe)",
     description:
-      "Navigating the complexities of international work permits can be challenging.",
+      "From bustling cities to charming towns, our expertise spans across various European countries, providing you with opportunities in leading industries such as technology, finance, healthcare, and more.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -102,9 +103,9 @@ const features = [
   },
   {
     Icon: CalendarIcon,
-    name: "Book Your Appointment",
+    name: "Support by Dedicated Team",
     description:
-      "At Viso Way Consultancy, we provide expert assistance in securing the appropriate visas for your desired destination.",
+      "A professional, responsive, and supportive team committed to making your international career transition seamless and successful.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
