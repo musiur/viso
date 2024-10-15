@@ -49,6 +49,11 @@ const pagesLinks = [
     name: "Contact",
     href: "/contact",
   },
+  {
+    id: 10,
+    name: "Blogs",
+    href: "/blogs",
+  },
 ];
 
 const legalsLinks = [
