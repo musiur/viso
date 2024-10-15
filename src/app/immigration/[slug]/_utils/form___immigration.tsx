@@ -69,7 +69,7 @@ export default function Form___Immigration() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    
+    console.log(values)
   }
 
   const occupations = [
