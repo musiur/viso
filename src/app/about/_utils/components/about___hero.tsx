@@ -21,12 +21,12 @@ const About___Hero = () => {
           </div>
           <Anim___FadeUp delay={1.25} key={1}>
             <p>
-              At Viso Way Consultancy, based in the heart of Doha, Qatar, we're
-              more than just a visa agency; we're your gateway to international
-              career success. With a decade of specialized experience in
-              securing work permits and visas for Europe, Canada, and Australia,
-              we are dedicated to helping professionals like you achieve your
-              global career aspirations.
+              At Viso Way Consultancy, based in the heart of Doha, Qatar,
+              we&apos;re more than just a visa agency. We&apos;re your gateway
+              to international career success. With a decade of specialized
+              experience in securing work permits and visas for Europe, Canada,
+              and Australia, we are dedicated to helping professionals like you
+              achieve your global career aspirations.
             </p>
           </Anim___FadeUp>
         </div>

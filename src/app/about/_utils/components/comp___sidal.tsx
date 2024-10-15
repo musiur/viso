@@ -1,6 +1,6 @@
 import Anim___FadeUp from "@/app/_utils/components/anim___fadeup";
 import clsx from "clsx";
-import { Check, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 
 export type Type___CompSidalProps = {
