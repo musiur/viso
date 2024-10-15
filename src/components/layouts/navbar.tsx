@@ -98,9 +98,7 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
         <Link href="/contact" className="hidden min-[1024px]:flex">
-          <ShinyButton >
-            Book a Consultation
-          </ShinyButton>
+          <ShinyButton>Book a Consultation</ShinyButton>
         </Link>
         <div className="flex items-center gap-4 min-[1024px]:hidden">
           <Drawer>
@@ -200,15 +198,7 @@ const NavMenus = ({
             <p className="text-sm text-muted-foreground">{parent.desciption}</p>
             <div className="flex flex-col gap-2 pt-2">
               {parent?.childrens?.map((child: Type___NavLink) => {
-                return child?.childrens?.length ? (
-                  <ChildLink key={child.id} child={child} scope={scope} />
-                ) : scope ? (
-                  <DrawerClose key={child.id} asChild>
-                    <ChildLink child={child} scope={scope} />
-                  </DrawerClose>
-                ) : (
-                  <ChildLink key={child.id} child={child} scope={scope} />
-                );
+                return <ChildLink key={child.id} child={child} scope={scope} />;
               })}
             </div>
           </li>
@@ -271,13 +261,25 @@ const ChildLink = ({
             {child?.childrens?.map((grandChild: Type___NavLink_GrandChild) => {
               return (
                 <li key={grandChild.id}>
-                  <Link
-                    href={grandChild.href || "#"}
-                    className="flex items-center gap-2 hover:text-primary transition duration-300 ease-linear text-sm"
-                  >
-                    - {grandChild.title}{" "}
-                    <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
-                  </Link>
+                  {scope ? (
+                    <DrawerClose asChild>
+                      <Link
+                        href={grandChild.href || "#"}
+                        className="flex items-center gap-2 hover:text-primary transition duration-300 ease-linear text-sm"
+                      >
+                        - {grandChild.title}{" "}
+                        <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                      </Link>
+                    </DrawerClose>
+                  ) : (
+                    <Link
+                      href={grandChild.href || "#"}
+                      className="flex items-center gap-2 hover:text-primary transition duration-300 ease-linear text-sm"
+                    >
+                      - {grandChild.title}{" "}
+                      <ArrowUpRight className="w-4 h-4 stroke-gray-400" />
+                    </Link>
+                  )}
                 </li>
               );
             })}

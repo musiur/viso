@@ -14,7 +14,7 @@ const Page = () => {
   return (
     <section className="container py-40">
       <div className="max-w-xl mx-auto py-10 flex flex-col justify-center items-center gap-4 [&>*]:text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">Contact us</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">Book a consultation</h2>
         <p>
           We are here to help you with your immigration needs. We are a team of
           experienced immigration consultants who are dedicated to helping you

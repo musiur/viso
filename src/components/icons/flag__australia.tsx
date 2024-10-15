@@ -8,7 +8,7 @@ const ICON___FlagAustralia = ({ className }: { className?: string }) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <g clip-path="url(#clip0_23_235)">
+      <g clipPath="url(#clip0_23_235)">
         <path d="M0 0H80V60H0V0Z" fill="#00008B" />
         <path
           d="M4.6875 0L19.9375 11.3125L35.125 0H40V3.875L25 15.0625L40 26.1875V30H35L20 18.8125L5.0625 30H0V26.25L14.9375 15.125L0 4V0H4.6875Z"

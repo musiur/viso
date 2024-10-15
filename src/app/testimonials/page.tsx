@@ -1,6 +1,8 @@
 import Marquee from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Testimonials___Hero from "./_utils/testimonials___hero";
+import { Fragment } from "react";
 
 const reviews = [
   {
@@ -87,16 +89,9 @@ const ReviewCard = ({
 
 const Testimonials = () => {
   return (
-    <section className="container hero-section">
-      <div className="py-10 flex items-center justify-center flex-col gap-4">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          Our wall of <span className="text-primary">love</span>
-        </h2>
-        <p>
-          Our clients are our priority, and we are committed to providing them
-          with the best immigration services.
-        </p>
-      </div>
+    <Fragment>
+      <Testimonials___Hero />
+      <section className="container hero-section">
       <div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden pt-4">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
@@ -112,6 +107,7 @@ const Testimonials = () => {
         <div className="absolute top-0 right-0 h-full w-[30px] pointer-events-none bg-gradient-to-l from-white dark:from-background" />
       </div>
     </section>
+    </Fragment>
   );
 };
 

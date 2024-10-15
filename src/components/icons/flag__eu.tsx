@@ -8,7 +8,7 @@ const ICON___FlagEU = ({ className }: { className: string }) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <g clip-path="url(#clip0_23_4)">
+      <g clipPath="url(#clip0_23_4)">
         <path d="M0 0H80V60H0V0Z" fill="#003399" />
         <path
           d="M40 9.54688L39.1111 12.5098L40.5926 12.8061L40 9.54688Z"
