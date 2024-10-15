@@ -69,7 +69,7 @@ export default function Form___Immigration() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    
   }
 
   const occupations = [
@@ -89,7 +89,6 @@ export default function Form___Immigration() {
     "Other",
   ];
 
-  console.log(form.formState.errors);
 
   return (
     <div className="w-full bg-white grid">

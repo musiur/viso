@@ -8,7 +8,7 @@ const ICON___FlagCanadaRounded = ({ className }: { className: string }) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <g clip-path="url(#clip0_23_475)">
+      <g clipPath="url(#clip0_23_475)">
         <path
           d="M10.5315 0.484863H55.819V64.4849H10.5315V0.484863Z"
           fill="white"

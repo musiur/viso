@@ -29,7 +29,7 @@ export default function Comp___Accordion({
       <Accordion type="single" collapsible className="w-full">
         {data.map((item: Type___AccordionItem) => (
           <AccordionItem key={item.value} value={item.value}>
-            <AccordionTrigger className="text-lg font-bold">
+            <AccordionTrigger className="font-medium text-left">
               {item.trigger}
             </AccordionTrigger>
             <AccordionContent>{item.content}</AccordionContent>

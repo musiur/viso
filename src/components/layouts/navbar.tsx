@@ -97,8 +97,8 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <Link href="/contact">
-          <ShinyButton className="hidden min-[1024px]:flex">
+        <Link href="/contact" className="hidden min-[1024px]:flex">
+          <ShinyButton >
             Book a Consultation
           </ShinyButton>
         </Link>
@@ -136,7 +136,7 @@ const Navbar = () => {
                   })}
                 </div>
                 <div className="p-4 flex flex-col items-center justify-center gap-2 pb-10 shadow-[0px_-10px_10px_0px_#00000010] h-auto">
-                  <Link href="/contact">
+                  <Link href="/contact" className="w-full">
                     <ShinyButton className="w-full">
                       Book a Consultation
                     </ShinyButton>

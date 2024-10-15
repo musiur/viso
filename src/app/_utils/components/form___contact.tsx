@@ -70,7 +70,7 @@ export default function Form___Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    
   }
 
   const occupations = [
@@ -89,8 +89,6 @@ export default function Form___Contact() {
     "Doctorate",
     "Other",
   ];
-
-  console.log(form.formState.errors);
 
   return (
     <div className="w-full bg-white grid">

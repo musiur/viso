@@ -1,7 +1,5 @@
 import BlurFade from "@/components/ui/blur-fade";
-import Ripple from "@/components/ui/ripple";
 import Image from "next/image";
-import { Fragment } from "react";
 
 const images = Array.from({ length: 9 }, (_, i) => {
   const isLandscape = i % 2 === 0;
@@ -12,8 +10,7 @@ const images = Array.from({ length: 9 }, (_, i) => {
 
 export default function Home___Gallery() {
   return (
-    <Fragment>
-      <section id="photos" className="container section">
+    <section id="photos" className="container section">
         <h2 className="text-4xl font-bold text-center mb-10">
           We are in Gallery
         </h2>
@@ -31,9 +28,5 @@ export default function Home___Gallery() {
           ))}
         </div>
       </section>
-      <section id="contact" className="container section relative">
-        <Ripple />
-      </section>
-    </Fragment>
   );
 }
