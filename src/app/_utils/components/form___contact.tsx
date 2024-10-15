@@ -70,7 +70,7 @@ export default function Form___Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    
+    console.log(values);
   }
 
   const occupations = [
