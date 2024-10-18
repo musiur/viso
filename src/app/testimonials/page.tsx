@@ -91,22 +91,22 @@ const Testimonials = () => {
   return (
     <Fragment>
       <Testimonials___Hero />
-      <section className="container hero-section">
-      <div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden pt-4">
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <div className="absolute top-0 left-0 h-full w-[30px] pointer-events-none bg-gradient-to-r from-white dark:from-background" />
-        <div className="absolute top-0 right-0 h-full w-[30px] pointer-events-none bg-gradient-to-l from-white dark:from-background" />
-      </div>
-    </section>
+      <section className="container section">
+        <div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden pt-4">
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {firstRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {secondRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+          <div className="absolute top-0 left-0 h-full w-[30px] pointer-events-none bg-gradient-to-r from-white dark:from-background" />
+          <div className="absolute top-0 right-0 h-full w-[30px] pointer-events-none bg-gradient-to-l from-white dark:from-background" />
+        </div>
+      </section>
     </Fragment>
   );
 };

@@ -28,7 +28,7 @@ const Page = () => {
             <h4 className="text-primary font-semibold">Call us now</h4>
             <p>Call our team any time, we are available 24/7 </p>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" /> +1 (234) 567-8900
+              <Phone className="w-4 h-4" /> +97444131170
             </div>
           </div>
           <div className="grid grid-cols-1 gap-2">
@@ -38,8 +38,7 @@ const Page = () => {
                 <Mail className="w-4 h-4" /> info@example.com
               </div>
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4" /> +1 (234) 567-8900
-                (WhatsApp)
+                <MessageCircle className="w-4 h-4" /> +97470816932 (WhatsApp)
               </div>
             </div>
           </div>
@@ -71,7 +70,7 @@ const Page = () => {
             <h4 className="text-primary font-semibold">Visit us</h4>
             <p>Chat to use in person</p>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Duha, Qatar
+              <MapPin className="min-w-6 min-h-6 stroke-[1.5px]" /> P.O. Box - 11468, Zone 6 Al Maher Street, 860 Building No 13, 1st Floor Office Number 9.
             </div>
           </div>
         </div>

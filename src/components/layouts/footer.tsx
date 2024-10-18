@@ -120,15 +120,11 @@ const Footer = () => {
             <div className="mb-4 max-h-10">
               <Logo />
             </div>
-            <p className="text-sm mb-4">
+            <p className="mb-4">
               Creating innovative solutions for a better tomorrow.
             </p>
-            <address className="text-sm not-italic">
-              123 Tech Street, Suite 456
-              <br />
-              San Francisco, CA 94105
-              <br />
-              United States
+            <address className="not-italic">
+            P.O. Box - 11468, Zone 6 Al Maher Street, 860 Building No 13, 1st Floor Office Number 9.
             </address>
           </div>
 
