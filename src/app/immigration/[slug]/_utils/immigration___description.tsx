@@ -2,6 +2,7 @@ import Form___Immigration from "./form___immigration";
 import { Type___Data, Type___DataList, Type___DataSection } from "./data/types";
 import { ReactElement } from "react";
 import { CheckCheck } from "lucide-react";
+import Link from "next/link";
 
 const Immigration___Description = ({ data }: { data: Type___Data }) => {
   return (
@@ -57,6 +58,25 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
             })}
           </div>
           <Paragraphs data={data} />
+          <div className="space-y-2 py-10">
+            <h6 className="font-bold">Viso Way Consultancy</h6>
+            <p>Doha, Qatar</p>
+            <p>
+              Email:{" "}
+              <Link href="mailto:info@visowayconsultancy.com">
+                info@visowayconsultancy.com
+              </Link>
+            </p>
+            <p>
+              Phone: <Link href="tel:+974-44131170">+974-44131170</Link>
+            </p>
+            <p>
+              Website:{" "}
+              <Link href="https://www.visowayconsultancy.com">
+                www.visowayconsultancy.com
+              </Link>
+            </p>
+          </div>
         </article>
       </div>
     </section>
