@@ -13,12 +13,13 @@ export type Type___DataSection = {
     description?: ReactElement[];
     list?: Type___DataList[];
     child?: Type___DataSection[];
+    paragraphs?: ReactElement[];
 }
 
 export type Type___DataList = {
     id: number;
     title: ReactElement;
-    paragraph: ReactElement;
+    paragraph?: ReactElement;
 }
 
 

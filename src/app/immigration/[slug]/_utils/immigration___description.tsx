@@ -12,31 +12,14 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
       <div className="col-span-1 xl:col-span-2">
         <article className="space-y-8">
           <h2 className="text-2xl font-bold">{data.title}</h2>
-          {data.description.map((item: ReactElement) => (
-            <p key={item.key}>{item}</p>
-          ))}
+          <Description data={data} />
           <div className="space-y-8">
             {data?.sections?.map((section: Type___DataSection) => {
               return (
                 <div key={section.id} className="space-y-4">
                   <h3 className="text-xl font-bold">{section.title}</h3>
-                  {section.description?.map((description: ReactElement) => (
-                    <p key={description.key} className="[&>span]:font-medium">
-                      {description}
-                    </p>
-                  ))}
-                  <div className="space-y-4 pl-4">
-                    {section.list?.map((listItem: Type___DataList) => {
-                      return (
-                        <p key={listItem.id}>
-                          <span className="text-lg font-bold">
-                            {listItem.title}
-                          </span>
-                          {listItem.paragraph}
-                        </p>
-                      );
-                    })}
-                  </div>
+                  <Description data={section} />
+                  <ListItem data={section} />
                   <div className="space-y-8">
                     {section.child?.map((child: Type___DataSection) => {
                       return (
@@ -44,30 +27,8 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
                           <h4 className="text-lg font-semibold border-b text-primary">
                             {child.title}
                           </h4>
-                          {child.description?.map(
-                            (childDescription: ReactElement) => (
-                              <p
-                                key={childDescription.key}
-                                className="[&>span]:font-medium"
-                              >
-                                {childDescription}
-                              </p>
-                            )
-                          )}
-                          <div className="space-y-4 pl-4">
-                            {child.list?.map(
-                              (childListItem: Type___DataList) => {
-                                return (
-                                  <p key={childListItem.id}>
-                                    <span className="text-lg font-medium">
-                                      {childListItem.title}
-                                    </span>
-                                    {childListItem.paragraph}
-                                  </p>
-                                );
-                              }
-                            )}
-                          </div>
+                          <Description data={child} />
+                          <ListItem data={child} />
                           <div className="space-y-12 pl-4">
                             {child.child?.map(
                               (grandChild: Type___DataSection) => {
@@ -79,39 +40,8 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
                                     <h5 className="text-base font-semibold border-b">
                                       {grandChild.title}
                                     </h5>
-                                    {grandChild.description?.map(
-                                      (grandChildDescription: ReactElement) => (
-                                        <p
-                                          key={grandChildDescription.key}
-                                          className="[&>span]:font-medium"
-                                        >
-                                          {grandChildDescription}
-                                        </p>
-                                      )
-                                    )}
-                                    <ul className="space-y-4 pl-4">
-                                      {grandChild.list?.map(
-                                        (
-                                          grandChildListItem: Type___DataList
-                                        ) => {
-                                          return (
-                                            <li
-                                              key={grandChildListItem.id}
-                                              className="flex gap-2"
-                                            >
-                                              <CheckCheck className="min-w-4 min-h-4 w-4 h-4 mt-1" />
-                                              <p>
-                                                <span className="font-medium">
-                                                  {grandChildListItem.title}:
-                                                </span>
-                                                &nbsp;
-                                                {grandChildListItem.paragraph}
-                                              </p>
-                                            </li>
-                                          );
-                                        }
-                                      )}
-                                    </ul>
+                                    <Description data={grandChild} />
+                                    <ListItem data={grandChild} />
                                   </div>
                                 );
                               }
@@ -121,17 +51,12 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
                       );
                     })}
                   </div>
+                  <Paragraphs data={section} />
                 </div>
               );
             })}
           </div>
-          {data.paragraphs?.map((item) => {
-            return (
-              <p key={item.key} className="[&>span]:font-bold">
-                {item}
-              </p>
-            );
-          })}
+          <Paragraphs data={data} />
         </article>
       </div>
     </section>
@@ -139,3 +64,42 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
 };
 
 export default Immigration___Description;
+
+const ListItem = ({ data }: { data: Type___DataSection }) => {
+  if (!data?.list?.length) return null;
+  return (
+    <ul className="space-y-4 pl-4">
+      {data?.list?.map((item: Type___DataList) => {
+        const { id, title, paragraph } = item;
+        return (
+          <li key={id} className="flex gap-2">
+            <CheckCheck className="min-w-4 min-h-4 w-4 h-4 mt-1" />
+            <p>
+              <span className="font-medium">{title}:</span>
+              &nbsp;
+              {paragraph}
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+const Description = ({ data }: { data: Type___DataSection | Type___Data }) => {
+  if (!data?.description?.length) return null;
+  return data.description?.map((description: ReactElement) => (
+    <p key={description.key} className="[&>span]:font-medium">
+      {description}
+    </p>
+  ));
+};
+
+const Paragraphs = ({ data }: { data: Type___DataSection | Type___Data }) => {
+  if (!data?.paragraphs?.length) return null;
+  return data.paragraphs?.map((paragraph: ReactElement) => (
+    <p key={paragraph.key} className="[&>span]:font-medium">
+      {paragraph}
+    </p>
+  ));
+};

@@ -20,80 +20,64 @@ const Data___Work_Permit: Type___Data = {
     {
       id: 2,
       title: <>Why Work in Europe?</>,
-      child: [
+      list: [
         {
           id: 1,
           title: <>Diverse Job Market</>,
-          description: [
-            <>
+          paragraph: <>
               Europe boasts a robust job market across various sectors, including technology, engineering, healthcare, and finance. There are ample opportunities for skilled workers to thrive.
-            </>,
-          ],
+            </> 
         },
         {
           id: 2,
           title: <>Cultural Experience</>,
-          description: [
-            <>
+          paragraph: <>
               Working in Europe allows you to immerse yourself in rich cultures, languages, and traditions. This experience not only enhances your professional skills but also broadens your personal horizons.
-            </>,
-          ],
+            </>
         },
         {
           id: 3,
           title: <>Quality of Life</>,
-          description: [
-            <>
+            paragraph: <>
               Many European countries offer an excellent quality of life, with strong healthcare systems, educational opportunities, and vibrant communities.
-            </>,
-          ],
+            </>
         },
       ],
     },
     {
       id: 3,
       title: <>Our Services</>,
-      description: [
-        <>
+      description: [<>
           At <span>Viso Way Consultancy</span>, we offer comprehensive services to facilitate your work permit application process:
-        </>,
-      ],
-      child: [
+        </>],
+      list: [
         {
           id: 1,
           title: <>Consultation</>,
-          description: [
-            <>
+            paragraph: <>
               We begin with a personalized consultation to understand your career goals and determine the best European destination for your skills.
-            </>,
-          ],
+            </>
         },
         {
           id: 2,
           title: <>Document Preparation</>,
-          description: [
-            <>
+            paragraph: <>
               Our team assists you in gathering and preparing all necessary documentation, ensuring that your application meets the specific requirements of your chosen country.
-            </>,
-          ],
+            </>
         },
         {
           id: 3,
           title: <>Application Submission</>,
-          description: [
-            <>
+            paragraph: <>
               We guide you through the submission process, ensuring that your application is completed accurately and submitted on time.
-            </>,
-          ],
+            </>
         },
         {
           id: 4,
           title: <>Follow-Up</>,
-          description: [
-            <>
+            paragraph: <>
               After submission, we provide ongoing support, tracking the status of your application and addressing any inquiries from immigration authorities.
-            </>,
-          ],
+            </>
         },
       ],
     },

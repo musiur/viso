@@ -3,16 +3,21 @@ import Immigration___Description from "./_utils/immigration___description";
 import Comp___Accordion from "@/app/_utils/components/comp___accordion";
 import Data___Australia from "./_utils/data/data___australia";
 import Data___Work_Permit from "./_utils/data/data___work_permit";
-
+import Data___Tourist from "./_utils/data/data___tourist";
+import Data___Europe from "./_utils/data/data___europe";
+import Data___Canada_Express_Entry from "./_utils/data/data___canada_express_entry";
+import Data___Canada_Provincial_Nominee_Program from "./_utils/data/data___canada_provincial_nominee_program";
 const DataHub = {
+  europe: Data___Europe,
+  "canada-express-entry": Data___Canada_Express_Entry,
+  "canada-provincial-nominee-program": Data___Canada_Provincial_Nominee_Program,
   australia: Data___Australia,
   "work-permit": Data___Work_Permit,
+  "tourist-visa": Data___Tourist,
   commingSoon: {
     title: <>Coming Soon</>,
     description: [
-      <>
-        This page is under construction. Please check back soon for updates.
-      </>,
+      <>This page is under construction. Please check back soon for updates.</>,
     ],
   },
 };
