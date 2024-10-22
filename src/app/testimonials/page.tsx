@@ -3,6 +3,12 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Testimonials___Hero from "./_utils/testimonials___hero";
 import { Fragment } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Wall of Love",
+  description: "Our clients are our priority, and we are committed to providing them with the best immigration services.",
+};
 
 const reviews = [
   {

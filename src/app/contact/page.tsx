@@ -9,6 +9,12 @@ import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
 import Form___Contact from "../_utils/components/form___contact";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Book a consultation",
+  description: "We are here to help you with your immigration needs. We are a team of experienced immigration consultants who are dedicated to helping you with your immigration needs."
+};
 
 const Page = () => {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "../brands/logo";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, /** Instagram, Linkedin, Twitter */} from "lucide-react";
 import Anim___FadeUp from "@/app/_utils/components/anim___fadeup";
 
 const pagesLinks = [
@@ -93,27 +93,27 @@ const socialLinks = [
   {
     id: 1,
     name: "Facebook",
-    href: "https://www.facebook.com/visowayconsultancy",
+    href: "https://www.facebook.com/profile.php?id=61567161902347&mibextid=ZbWKwL",
     icon: <Facebook />,
   },
-  {
-    id: 2,
-    name: "Instagram",
-    href: "https://www.instagram.com/visowayconsultancy",
-    icon: <Instagram />,
-  },
-  {
-    id: 3,
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/visowayconsultancy",
-    icon: <Linkedin />,
-  },
-  {
-    id: 4,
-    name: "Twitter",
-    href: "https://www.twitter.com/visowayconsultancy",
-    icon: <Twitter />,
-  },
+  // {
+  //   id: 2,
+  //   name: "Instagram",
+  //   href: "https://www.instagram.com/visowayconsultancy",
+  //   icon: <Instagram />,
+  // },
+  // {
+  //   id: 3,
+  //   name: "LinkedIn",
+  //   href: "https://www.linkedin.com/company/visowayconsultancy",
+  //   icon: <Linkedin />,
+  // },
+  // {
+  //   id: 4,
+  //   name: "Twitter",
+  //   href: "https://www.twitter.com/visowayconsultancy",
+  //   icon: <Twitter />,
+  // },
 ];
 
 const Footer = () => {

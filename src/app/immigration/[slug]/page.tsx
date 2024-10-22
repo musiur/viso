@@ -7,6 +7,8 @@ import Data___Tourist from "./_utils/data/data___tourist";
 import Data___Europe from "./_utils/data/data___europe";
 import Data___Canada_Express_Entry from "./_utils/data/data___canada_express_entry";
 import Data___Canada_Provincial_Nominee_Program from "./_utils/data/data___canada_provincial_nominee_program";
+
+
 const DataHub = {
   europe: Data___Europe,
   "canada-express-entry": Data___Canada_Express_Entry,
@@ -30,6 +32,28 @@ const getData = async (slug: string) => {
     data = DataHub[slug as keyof typeof DataHub];
   }
   return data;
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}) => {
+  const data = await getData(params.slug);
+  let MetadataTitle = "Immigration";
+  let MetadataDescription = "Viso Way Consultancy. Acheieve your destiny.";
+
+  MetadataTitle = data?.title?.props?.children;
+  MetadataDescription = data?.description[0]?.props?.children
+    .toString()
+    .replaceAll(
+      "[object Object]",
+      data?.description[0]?.props?.children[1]?.props?.children
+    );
+  return {
+    title: MetadataTitle,
+    description: MetadataDescription,
+  };
 };
 
 const Page = async ({ params }: { params: { slug: string } }) => {
