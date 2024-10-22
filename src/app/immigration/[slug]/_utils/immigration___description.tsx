@@ -11,75 +11,81 @@ const Immigration___Description = ({ data }: { data: Type___Data }) => {
         <Form___Immigration />
       </div>
       <div className="col-span-1 xl:col-span-2">
-        <article className="space-y-8">
-          <h2 className="text-2xl font-bold">{data.title}</h2>
-          <Description data={data} />
-          <div className="space-y-8">
-            {data?.sections?.map((section: Type___DataSection) => {
-              return (
-                <div key={section.id} className="space-y-4">
-                  <h3 className="text-xl font-bold">{section.title}</h3>
-                  <Description data={section} />
-                  <ListItem data={section} />
-                  <div className="space-y-8">
-                    {section.child?.map((child: Type___DataSection) => {
-                      return (
-                        <div key={child.id} className="space-y-4">
-                          <h4 className="text-lg font-semibold border-b text-primary">
-                            {child.title}
-                          </h4>
-                          <Description data={child} />
-                          <ListItem data={child} />
-                          <div className="space-y-12 pl-4">
-                            {child.child?.map(
-                              (grandChild: Type___DataSection) => {
-                                return (
-                                  <div
-                                    key={grandChild.id}
-                                    className="space-y-4"
-                                  >
-                                    <h5 className="text-base font-semibold border-b">
-                                      {grandChild.title}
-                                    </h5>
-                                    <Description data={grandChild} />
-                                    <ListItem data={grandChild} />
-                                  </div>
-                                );
-                              }
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <Paragraphs data={section} />
-                </div>
-              );
-            })}
-          </div>
-          <Paragraphs data={data} />
-          <div className="space-y-2 py-10">
-            <h6 className="font-bold">Viso Way Consultancy</h6>
-            <p>Doha, Qatar</p>
-            <p>
-              Email:{" "}
-              <Link href="mailto:info@visowayconsultancy.com">
-                info@visowayconsultancy.com
-              </Link>
-            </p>
-            <p>
-              Phone: <Link href="tel:+974-44131170">+974-44131170</Link>
-            </p>
-            <p>
-              Website:{" "}
-              <Link href="https://www.visowayconsultancy.com">
-                www.visowayconsultancy.com
-              </Link>
-            </p>
-          </div>
-        </article>
+        <ArticleRenderer data={data} />
       </div>
     </section>
+  );
+};
+
+export const ArticleRenderer = ({ data }: { data: Type___Data }) => {
+  return (
+    <article className="space-y-8">
+      <h2 className="text-2xl font-bold">{data.title}</h2>
+      <Description data={data} />
+      <div className="space-y-8">
+        {data?.sections?.map((section: Type___DataSection) => {
+          return (
+            <div key={section.id} className="space-y-4">
+              <h3 className="text-xl font-bold">{section.title}</h3>
+              <Description data={section} />
+              <ListItem data={section} />
+              <div className="space-y-8">
+                {section.child?.map((child: Type___DataSection) => {
+                  return (
+                    <div key={child.id} className="space-y-4">
+                      <h4 className="text-lg font-semibold border-b text-primary">
+                        {child.title}
+                      </h4>
+                      <Description data={child} />
+                      <ListItem data={child} />
+                      <div className="space-y-12 pl-4">
+                        {child.child?.map((grandChild: Type___DataSection) => {
+                          return (
+                            <div key={grandChild.id} className="space-y-4">
+                              <h5 className="text-base font-semibold border-b">
+                                {grandChild.title}
+                              </h5>
+                              <Description data={grandChild} />
+                              <ListItem data={grandChild} />
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <Paragraphs data={child} />
+                    </div>
+                  );
+                })}
+              </div>
+              <Paragraphs data={section} />
+            </div>
+          );
+        })}
+      </div>
+      <Paragraphs data={data} />
+      <div className="space-y-2 py-10">
+        <h6 className="font-bold">Viso Way Consultancy</h6>
+        <p>
+          Zone 6, Al Mahar Street 860, Building 13, 1st floor, Office 9, Doha,
+          Qatar
+        </p>
+        <p>Working Hours: Monday to Sunday (10:00 AM - 19:00 PM)</p>
+        <p>
+          Email:{" "}
+          <Link href="mailto:info@visowayconsultancy.com">
+            info@visowayconsultancy.com
+          </Link>
+        </p>
+        <p>
+          Phone: <Link href="tel:+974-44131170">+974-44131170</Link>
+        </p>
+        <p>
+          Website:{" "}
+          <Link href="https://www.visowayconsultancy.com">
+            www.visowayconsultancy.com
+          </Link>
+        </p>
+      </div>
+    </article>
   );
 };
 

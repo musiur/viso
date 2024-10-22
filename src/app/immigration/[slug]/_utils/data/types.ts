@@ -18,7 +18,7 @@ export type Type___DataSection = {
 
 export type Type___DataList = {
     id: number;
-    title: ReactElement;
+    title?: ReactElement;
     paragraph?: ReactElement;
 }
 

@@ -60,27 +60,32 @@ const legalsLinks = [
   {
     id: 1,
     name: "Privacy Policy",
-    href: "/legals/privacy-policy",
+    href: "/legals#privacy-policy-and-terms-of-service",
   },
   {
     id: 2,
     name: "Terms of Service",
-    href: "/legals/terms-of-service",
+    href: "/legals#terms-of-service",
   },
   {
     id: 3,
     name: "Cookie Policy",
-    href: "/legals/cookie-policy",
+    href: "/legals#cookie-policy",
   },
   {
     id: 4,
-    name: "Disclaimer",
-    href: "/legals/disclaimer",
+    name: "Modification of Terms",
+    href: "/legals#modification-of-terms",
   },
   {
     id: 5,
-    name: "Grievance Redressal",
-    href: "/legals/grievance-redressal",
+    name: "Disclaimer",
+    href: "/legals#disclaimer",
+  },
+  {
+    id: 6,
+    name: "Grievance Redressal Policy",
+    href: "/legals#grievance-redressal-policy",
   },
 ];
 
