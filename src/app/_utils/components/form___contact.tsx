@@ -1,4 +1,3 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,6 +26,8 @@ import "react-phone-number-input/style.css";
 import ReactSelect from "react-select";
 import countryList from "react-select-country-list";
 import Image from "next/image";
+import { sendEmail } from "@/app/contact/_utils/actions";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -69,8 +70,15 @@ export default function Form___Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    const result = await sendEmail(values);
+    console.log(result);
+    if (result.success) {
+      toast.success(result.message);
+    } else {
+      toast.error(result.message);
+    }
   }
 
   const occupations = [
@@ -269,8 +277,12 @@ export default function Form___Contact() {
             />
           </div>
 
-          <Button type="submit" className="w-full col-span-2">
-            Send Message
+          <Button
+            type="submit"
+            className="w-full col-span-2"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </Form>
