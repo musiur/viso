@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Logo from "../brands/logo";
-import { Facebook, /** Instagram, Linkedin, Twitter */} from "lucide-react";
 import Anim___FadeUp from "@/app/_utils/components/anim___fadeup";
+import Icon___TikTok from "../icons/icon__tiktok";
+import Icon___Facebook from "../icons/icon___facebook";
+import Icon___Instagram from "../icons/icon___instagram";
 
 const pagesLinks = [
   {
@@ -94,20 +96,20 @@ const socialLinks = [
     id: 1,
     name: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61567161902347&mibextid=ZbWKwL",
-    icon: <Facebook />,
+    icon: <Icon___Facebook />,
   },
-  // {
-  //   id: 2,
-  //   name: "Instagram",
-  //   href: "https://www.instagram.com/visowayconsultancy",
-  //   icon: <Instagram />,
-  // },
-  // {
-  //   id: 3,
-  //   name: "LinkedIn",
-  //   href: "https://www.linkedin.com/company/visowayconsultancy",
-  //   icon: <Linkedin />,
-  // },
+  {
+    id: 2,
+    name: "Instagram",
+    href: "https://www.instagram.com/visowayconsultancy/profilecard/?igsh=MW9mZ3FzODVkMXQ2MA==",
+    icon: <Icon___Instagram />,
+  },
+  {
+    id: 3,
+    name: "TikTok",
+    href: "https://www.tiktok.com/@viso.way.consulta?_t=8qmN50C1kmn&_r=1",
+    icon: <Icon___TikTok />,
+  },
   // {
   //   id: 4,
   //   name: "Twitter",
@@ -120,7 +122,11 @@ const Footer = () => {
   return (
     <footer className="bg-muted py-12">
       <div className="container mx-auto px-4">
-        <Anim___FadeUp delay={0.1} key={1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <Anim___FadeUp
+          delay={0.1}
+          key={1}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           <div>
             <div className="mb-4 max-h-10">
               <Logo />
@@ -129,7 +135,8 @@ const Footer = () => {
               Creating innovative solutions for a better tomorrow.
             </p>
             <address className="not-italic">
-            P.O. Box - 11468, Zone 6 Al Maher Street, 860 Building No 13, 1st Floor Office Number 9.
+              P.O. Box - 11468, Zone 6 Al Maher Street, 860 Building No 13, 1st
+              Floor Office Number 9.
             </address>
           </div>
 
