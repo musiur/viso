@@ -13,9 +13,10 @@ export async function POST(request: Request) {
 
 
         const { data, error } = await resend.emails.send({
-            from: 'Viso Way Consultancy <onboarding@resend.dev>',
-            // from: 'Viso Way Consultancy <visowayconsultancy@gmail.com>',
-            to: ['visowayconsultancy@gmail.com'],
+            // from: 'Viso Way Consultancy <onboarding@resend.dev>',
+            from: 'Viso Way Consultancy <info@visowayconsultancy.com>',
+            to: ['musiur.opu@gmail.com', 'visowayconsultancy@gmail.com'],
+            cc: [email],
             subject: 'Contact Form Submission: Viso Way Consultancy Website',
             react: EmailTemplate({ name, email, country, phone, occupation, education, message }),
         });
