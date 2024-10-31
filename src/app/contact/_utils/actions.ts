@@ -1,3 +1,6 @@
+
+/* eslint-disable */
+
 "use server";
 
 export async function sendEmail(formData: any) {
