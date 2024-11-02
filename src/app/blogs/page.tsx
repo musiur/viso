@@ -8,70 +8,9 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
+import { BlogContents } from "./[slug]/_utils/contents";
 
 export default function Page() {
-  const blogPosts = [
-    {
-      title: "Getting Started with React",
-      description:
-        "Learn the basics of React and start building your first component.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-03-15",
-      author: "Jane Doe",
-      tags: ["React", "JavaScript", "Web Development"],
-      slug: "getting-started-with-react",
-    },
-    {
-      title: "Advanced TypeScript Techniques",
-      description:
-        "Dive deep into TypeScript and learn advanced types and patterns.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-03-10",
-      author: "John Smith",
-      tags: ["TypeScript", "JavaScript", "Programming"],
-      slug: "advanced-type-script-techniques",
-    },
-    {
-      title: "The Future of Web Development",
-      description:
-        "Explore upcoming trends and technologies in web development.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-03-05",
-      author: "Alice Johnson",
-      tags: ["Web Development", "Technology", "Trends"],
-      slug: "the-future-of-web-development",
-    },
-    {
-      title: "Mastering CSS Grid",
-      description: "Learn how to create complex layouts with CSS Grid.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-02-28",
-      author: "Bob Williams",
-      tags: ["CSS", "Web Design", "Layout"],
-      slug: "mastering-css-grid",
-    },
-    {
-      title: "Introduction to GraphQL",
-      description:
-        "Understand the basics of GraphQL and how it differs from REST.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-02-20",
-      author: "Charlie Brown",
-      tags: ["GraphQL", "API", "Backend"],
-      slug: "introduction-to-graphql",
-    },
-    {
-      title: "Building Scalable Node.js Applications",
-      description:
-        "Learn best practices for building large-scale Node.js applications.",
-      image: "https://avatar.vercel.sh/john",
-      date: "2024-02-15",
-      author: "Diana Martinez",
-      tags: ["Node.js", "JavaScript", "Backend"],
-      slug: "building-scalable-node-js-applications",
-    },
-  ];
-
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
       <div className="container px-4 md:px-6">
@@ -79,7 +18,7 @@ export default function Page() {
           Latest Blog Posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((post, index) => (
+          {BlogContents.map((post, index) => (
             <Card key={index} className="flex flex-col h-full">
               <CardHeader className="p-0">
                 <Image
@@ -96,8 +35,8 @@ export default function Page() {
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                   <span className="font-medium">{post.author}</span>
                   <span className="mx-2">•</span>
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("en-US", {
+                  <time dateTime={post.publishDate}>
+                    {new Date(post.publishDate).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
