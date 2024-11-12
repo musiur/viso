@@ -91,7 +91,7 @@ const legalsLinks = [
   },
 ];
 
-const socialLinks = [
+export const socialLinks = [
   {
     id: 1,
     name: "Facebook",

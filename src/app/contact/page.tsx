@@ -1,15 +1,13 @@
 import {
-  Facebook,
-  Instagram,
   MessageCircle,
   Phone,
-  Twitter,
 } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
 import Form___Contact from "../_utils/components/form___contact";
 import Link from "next/link";
 import { Metadata } from "next";
+import { socialLinks } from "@/components/layouts/footer";
 
 export const metadata: Metadata = {
   title: "Book a consultation",
@@ -41,7 +39,7 @@ const Page = () => {
             <h4 className="text-primary font-semibold">Chat with us</h4>
             <div className="grid grid-cols-1 gap-2">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" /> info@example.com
+                <Mail className="w-4 h-4" /> info@visowayconsultancy.com
               </div>
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4" /> +97470816932 (WhatsApp)
@@ -51,25 +49,18 @@ const Page = () => {
           <div className="grid grid-cols-1 gap-2">
             <h4 className="text-primary font-semibold">Social Media</h4>
             <p>Reach out to us on our social media platforms</p>
-            <div className="flex flex-wrap items-center gap-2">
-              <Link
-                href="#"
-                className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
-              >
-                <Facebook className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
-                className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
-              >
-                <Instagram className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
-                className="p-2 rounded-lg hover:bg-primary text-primary bg-primary/10 hover:text-white"
-              >
-                <Twitter className="w-4 h-4" />
-              </Link>
+            <div className="flex flex-col gap-4">
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.id}
+                  href={link.href}
+                  target="_blank"
+                  passHref={true}
+                  className="flex items-center gap-2 hover:text-primary [&>svg]:w-4 [&>svg]:h-4"
+                >
+                  {link.icon} {link.name}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="grid grid-cols-1 gap-2">
