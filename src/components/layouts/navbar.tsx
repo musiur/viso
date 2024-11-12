@@ -253,9 +253,9 @@ const ChildLink = ({
             {child.title}
           </p>
         )}
-        {child?.desciption ? (
+        {/* {child?.desciption ? (
           <p className="text-sm text-muted-foreground">{child.desciption}</p>
-        ) : null}
+        ) : null} */}
         {child?.childrens?.length ? (
           <ul className="flex flex-col gap-2 pt-2">
             {child?.childrens?.map((grandChild: Type___NavLink_GrandChild) => {
