@@ -2,6 +2,7 @@ import HeadingOne from "@/components/typography/heading-one";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import BG___HomeHero from "../assets/home-hero-bg";
 import Anim___FadeUp from "./anim___fadeup";
+import Link from "next/link";
 
 const Home___Hero = () => {
   return (
@@ -35,16 +36,20 @@ const Home___Hero = () => {
           permits and making your international career aspirations a reality.
         </Anim___FadeUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full sm:w-auto">
-          <ShinyButton className="w-full sm:w-auto">
-            Explore Immigrations
-          </ShinyButton>
-          <ShinyButton
-            variant="outline"
-            delay={0.5}
-            className="w-full sm:w-auto"
-          >
-            Book a Consultation
-          </ShinyButton>
+          <Link href="/immigration/europe">
+            <ShinyButton className="w-full sm:w-auto">
+              Explore Immigrations
+            </ShinyButton>
+          </Link>
+          <Link href="/contact">
+            <ShinyButton
+              variant="outline"
+              delay={0.5}
+              className="w-full sm:w-auto"
+            >
+              Book a Consultation
+            </ShinyButton>
+          </Link>
         </div>
       </div>
     </section>
