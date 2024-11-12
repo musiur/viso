@@ -218,7 +218,7 @@ const ChildLink = ({
   return (
     <div
       className={clsx(
-        "flex items-start justify-start gap-3 py-2 px-3 rounded-xl transition duration-300 ease-linear bg-gray-100",
+        "flex items-center justify-start gap-3 py-2 px-3 rounded-xl transition duration-300 ease-linear bg-gray-100",
         {
           "mb-8 pb-4": child?.childrens?.length,
           "pb-2": !child?.childrens?.length,
@@ -253,9 +253,9 @@ const ChildLink = ({
             {child.title}
           </p>
         )}
-        {/* {child?.desciption ? (
+        {child?.desciption ? (
           <p className="text-sm text-muted-foreground">{child.desciption}</p>
-        ) : null} */}
+        ) : null}
         {child?.childrens?.length ? (
           <ul className="flex flex-col gap-2 pt-2">
             {child?.childrens?.map((grandChild: Type___NavLink_GrandChild) => {
@@ -303,44 +303,36 @@ const NavLinks: Type___NavLink[] = [
       {
         id: 1,
         title: "Immigration",
-        desciption:
-          "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
         childrens: [
           {
             id: 1,
             title: "Europe",
-            desciption:
-              "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
             href: "/immigration/europe",
             icon: <ICON___FlagEU className="w-8 h-8" />,
           },
           {
             id: 2,
             title: "Australia",
-            desciption:
-              "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+            
             href: "/immigration/australia",
             icon: <ICON___FlagAustralia className="w-8 h-8" />,
           },
           {
             id: 3,
             title: "Canada",
-            desciption:
-              "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+            
             icon: <ICON___FlagCanada className="w-8 h-8" />,
             childrens: [
               {
                 id: 1,
                 title: "Express Entry",
-                desciption:
-                  "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+                
                 href: "/immigration/canada-express-entry",
               },
               {
                 id: 2,
                 title: "Provincial Nominee Program",
-                desciption:
-                  "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+                
                 href: "/immigration/canada-provincial-nominee-program",
               },
             ],
@@ -350,15 +342,13 @@ const NavLinks: Type___NavLink[] = [
       {
         id: 2,
         title: "Work Permit (Only Europe)",
-        desciption:
-          "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+        
         href: "/immigration/work-permit",
       },
       {
         id: 3,
         title: "Tourist VISA (All Countries)",
-        desciption:
-          "Lorem ipsum dolor sit amet elit sed do. sit amet elit sed do.",
+        
         href: "/immigration/tourist-visa",
       },
     ],
